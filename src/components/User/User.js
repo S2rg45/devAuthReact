@@ -100,13 +100,13 @@ export const User = (props) => {
                                 <li className="list-group-item " key={item.id}>
                                     <span className="lead">{item.name}</span>
                                     <button 
-                                        className="btn btn-danger btn-sm float-right mx-2"
+                                        className="btn btn-warning btn-sm float-right mx-2"
                                         onClick={() => deletes(item.id)}
                                     >
                                         Eliminar Tarea
                                     </button>
                                     <button 
-                                        className="btn btn-warning btn-sm float-right "
+                                        className="btn btn-danger btn-sm float-right "
                                         onClick={() => activateEdit(item) }    
                                     >
                                         Editar Tarea
