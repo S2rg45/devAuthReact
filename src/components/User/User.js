@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../Firebase/Firebase'
+import moment from 'moment'
+import 'moment/locale/es'
 
 export const User = (props) => {
 
@@ -21,7 +23,7 @@ export const User = (props) => {
         }
 
         getInformation()
-    }, [])
+    }, [props.user.email])
 
     const newTask = async (e)=>{
         e.preventDefault()
@@ -98,19 +100,25 @@ export const User = (props) => {
                         ) : (
                             task.map(item => ( 
                                 <li className="list-group-item " key={item.id}>
-                                    <span className="lead">{item.name}</span>
-                                    <button 
-                                        className="btn btn-danger btn-sm float-right mx-2"
-                                        onClick={() => deletes(item.id)}
-                                    >
-                                        Eliminar Tarea
-                                    </button>
-                                    <button 
-                                        className="btn btn-warning btn-sm float-right "
-                                        onClick={() => activateEdit(item) }    
-                                    >
-                                        Editar Tarea
-                                    </button>
+                                    <div className="row">
+                                        <div className="col-6">
+                                             <span className="lead mb-2">{item.name}-{moment(item.date).format('LLL')}</span>
+                                        </div>
+                                        <div className="col-6">
+                                            <button 
+                                                className="btn btn-danger btn-sm float-right mx-2"
+                                                onClick={() => deletes(item.id)}
+                                                >
+                                                Eliminar Tarea
+                                            </button>
+                                            <button 
+                                                className="btn btn-warning btn-sm float-right "
+                                                onClick={() => activateEdit(item) }    
+                                                >
+                                                Editar Tarea
+                                            </button>
+                                        </div>                                      
+                                    </div>
                                 </li>
                             ))
                         )

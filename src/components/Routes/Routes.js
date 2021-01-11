@@ -4,6 +4,7 @@ import Admin from '../Admin/Admin'
 import Navbar  from '../Fixed/Navbar'
 import Login from '../Login/Login'
 import { auth } from '../Firebase/Firebase'
+import Reset from '../Fixed/Reset'
 
 const Routes = () => {
 
@@ -29,6 +30,9 @@ const Routes = () => {
                     </Route>
                     <Route path="/admin">
                         <Admin />
+                    </Route>
+                    <Route path="/reset">
+                        <Reset />
                     </Route>
                     <Route path="/">
                         Inicio...
